@@ -10,7 +10,7 @@ import java.util.List;
  * ASU ID: 1225397459
  */
 public class Start_File {
-    public static void checking(List<String> data) throws IOException {
+    public static List<Integer> checking(List<String> data) throws IOException {
         int index = 0;
         List<Integer> ans = new ArrayList<>();
         while(!data.isEmpty()){
@@ -39,5 +39,6 @@ public class Start_File {
             data.remove(str);
         }
         outputAns.print(ans);
+        return ans;
     }
 }
