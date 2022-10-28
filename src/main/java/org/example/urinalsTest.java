@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.testng.Assert;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -45,6 +46,15 @@ public class urinalsTest {
                     test = false;
             }
             data.remove(str);
+        }
+        assertTrue(test);
+    }
+    @Test
+    void FileisDuplicate() throws IOException {
+        File myObj = new File("rule.txt");
+        boolean test = false;
+        if(myObj.createNewFile()){
+            test = true;
         }
         assertTrue(test);
     }
