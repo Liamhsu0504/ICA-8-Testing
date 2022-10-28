@@ -2,6 +2,7 @@ package org.example;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.testng.Assert;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -29,5 +30,22 @@ public class urinalsTest {
     void EmptyFile(){
         inputdata.scrap(data);
         assertFalse(data.isEmpty());
+    }
+    @Test
+    void NumberFormatException(){
+        data = new ArrayList<>();
+        inputdata.scrap(data);
+        int index = 0;
+        boolean test = true;
+        while(!data.isEmpty()){
+            String str = data.get(index);
+            for(int i = 0; i < str.length(); i++){
+                char c = str.charAt(i);
+                if(c != '0' && c != '1')
+                    test = false;
+            }
+            data.remove(str);
+        }
+        assertTrue(test);
     }
 }
