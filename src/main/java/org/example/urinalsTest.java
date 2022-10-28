@@ -58,4 +58,23 @@ public class urinalsTest {
         }
         assertTrue(test);
     }
+    @Test
+    void BadFilename() throws IOException {
+        data = new ArrayList<>();
+        inputdata.scrap(data);
+        File myObj = new File("rule.txt");
+        int count = 0;
+        String str = "rule.txt";
+        while (!myObj.createNewFile()) {
+            StringBuilder stringBuilder = new StringBuilder();
+            count++;
+            stringBuilder.append("rule" + count + ".txt");
+            str = stringBuilder.toString();
+            myObj = new File(str);
+        }
+        System.out.print(str);
+        Boolean test_rule = str.contains("rule");
+        Boolean test2_txt = str.contains(".txt");
+        assertTrue(test_rule && test2_txt);
+    }
 }

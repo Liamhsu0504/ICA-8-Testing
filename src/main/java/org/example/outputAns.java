@@ -14,15 +14,15 @@ public class outputAns {
     static int count = 0;
     public static void print(List<Integer> ans) throws IOException {
         File myObj = new File("rule.txt");
-        String str = "";
-        myObj.createNewFile();
-        /*while (!myObj.createNewFile()) {
+        String str = "rule.txt";
+        while (!myObj.createNewFile()) {
             StringBuilder stringBuilder = new StringBuilder();
             count++;
             stringBuilder.append("rule" + count + ".txt");
             str = stringBuilder.toString();
-        }*/
-        FileWriter myWriter = new FileWriter("rule.txt");
+            myObj = new File(str);
+        }
+        FileWriter myWriter = new FileWriter(str);
         for(int i = 0; i < ans.size(); i++){
             String s = ans.get(i).toString();
             myWriter.write(s + '\n');
