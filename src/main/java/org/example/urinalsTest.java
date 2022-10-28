@@ -51,10 +51,18 @@ public class urinalsTest {
     }
     @Test
     void FileisDuplicate() throws IOException {
-        File myObj = new File("rule.txt");
-        boolean test = false;
-        if(myObj.createNewFile()){
-            test = true;
+        data = new ArrayList<>();
+        inputdata.scrap(data);
+        int index = 0;
+        boolean test = true;
+        while(!data.isEmpty()){
+            String str = data.get(index);
+            for(int i = 0; i < str.length(); i++){
+                char c = str.charAt(i);
+                if(c != '0' && c != '1')
+                    test = false;
+            }
+            data.remove(str);
         }
         assertTrue(test);
     }
@@ -72,9 +80,21 @@ public class urinalsTest {
             str = stringBuilder.toString();
             myObj = new File(str);
         }
-        System.out.print(str);
         Boolean test_rule = str.contains("rule");
         Boolean test2_txt = str.contains(".txt");
         assertTrue(test_rule && test2_txt);
+    }
+    @Test
+    void Urinal_StringIsNull(){
+        data = new ArrayList<>();
+        inputdata.scrap(data);
+        int index = 0;
+        boolean test = true;
+        while(!data.isEmpty()){
+            String str = data.get(index);
+            if(str == null) test = false;
+            data.remove(str);
+        }
+        assertTrue(test);
     }
 }
