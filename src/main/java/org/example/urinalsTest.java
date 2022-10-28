@@ -19,13 +19,15 @@ import static org.testng.AssertJUnit.assertTrue;
  * ASU ID: 1225397459
  */
 public class urinalsTest {
-     File doc = new File("/Users/liam0504/Desktop/ICA-8/src/data/urinals.dat");
+    File doc = new File("/Users/liam0504/Desktop/ICA-8/src/data/urinal.dat");
     public static List<String> data = new ArrayList<>();
     @Test
     void FileExists(){
-        assertThrows(IllegalArgumentException.class,
-                () ->{
-                    inputdata.scrap(data);
-                });
+        assertTrue(doc.exists());
+    }
+    @Test
+    void EmptyFile(){
+        inputdata.scrap(data);
+        assertFalse(data.isEmpty());
     }
 }

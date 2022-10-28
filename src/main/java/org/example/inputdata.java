@@ -16,7 +16,7 @@ public class inputdata {
     public static  File doc;
 
     public static void scrap(List<String> data) {
-        doc = new File("/Users/liam0504/Desktop/ICA-8/src/data/urinals.dat");
+        doc = new File("/Users/liam0504/Desktop/ICA-8/src/data/urinal.dat");
         try {
             obj = new Scanner(doc);
         } catch (FileNotFoundException e) {
